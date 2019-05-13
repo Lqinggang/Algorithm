@@ -17,14 +17,14 @@ string_match(const char *main_string, const char *patern_string)
         }
         else  /* 失配时，匹配串从头开始比较，主串从之前已经匹配的字符后开始  */
         {
-            i = i - (j - 1);
+            i = i - (j - 1);  /* j - 1: 已经匹配的字符数（不包括最后一个不匹配的字符）*/
             j = 0;
         }
     }
 
     if (j == strlen(patern_string))
     {
-        return (0);
+        return (i - j);
     }
     return (-1);
 }
