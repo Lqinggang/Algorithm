@@ -14,28 +14,32 @@
 
 
 int
-bubble(int *array, size_t size, int (*compare)(int element1, int elemenet2))
+bubble(int *array, size_t size, int (*compare)(const void *element1, const void *elemenet2))
 {
     if (array == NULL || compare == NULL)
     {
         return (-1);
     }
     
-    int k = 0;
-    int i, j;
+    size_t i, j;
+    int exchange;
     for (i = 0; i < size; i++)
     {
-        for (j = 1; j < size - i; j++)
+        exchange = 0;
+        for (j = 1; j < size - i; j++)  /* size - i 之后已经排好序 */
         {
-            if (compare(array[j - 1], array[j]) < 0)
+            if (compare(&array[j - 1], &array[j]) >= 0)
             {
                 array[j - 1] = array[j - 1] ^ array[j];
                 array[j] = array[j - 1] ^ array[j];
                 array[j - 1] = array[j - 1] ^ array[j];
+                exchange = 1;
             }
-//            printf("%d): ", k++);
-//            printf_array(array, size);
-//            printf("\n");
+        }
+
+        if (exchange == 0)  /* 未排序部分没有进行交换，说明已经排好序 */
+        {
+            break;
         }
     }
     return (0);

@@ -8,6 +8,6 @@
  * < 0: descending
  * > 0: ascending
  */
-extern int bubble(int *array, size_t size, int (*compare)(int element1, int elemenet2));
+extern int bubble(int *array, size_t size, int (*compare)(const void *element1, const void *elemenet2));
 
-#endif
+#endif  /* ALGORITHM_SORT_BUBBLE_H */

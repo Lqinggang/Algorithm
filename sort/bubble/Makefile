@@ -1,6 +1,6 @@
 EXECNAME=bubble
 CC=gcc
-CFLAGS=
+CFLAGS= -Wall -W -O2
 LDFLAGS=
 
 SRC=$(wildcard *.c)
