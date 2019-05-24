@@ -34,8 +34,8 @@ main(void)
     int i;
     for (i = 0; i < BUFFSIZE; i++)
     {
-        array[i] = rand() % 1001;
-//        array[i] = i;
+//        array[i] = rand() % 1001;
+        array[i] = i;
         array_qsort[i] = array[i];
         array_bubble[i] = array[i];
     }

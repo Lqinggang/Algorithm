@@ -25,6 +25,12 @@ cocktail(int *array, size_t size, int (*compare)(const void *element1, const voi
             }
         }
 
+        if (exchange == 0)  /* 未排序部分没有进行交换，说明已经排好序 */
+        {
+            break;
+        }
+
+
         for (j = size - i - 1; j > 0; j--)  /* size - i 之后已经排好序 */
         {
             if (compare(&array[j], &array[j - 1]) <= 0)
